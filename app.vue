@@ -1,0 +1,582 @@
+<script lang="ts" setup>
+
+import { EffectCards, Autoplay, Pagination } from 'swiper'
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/vue'
+
+import 'swiper/css'
+import 'swiper/css/effect-cards'
+import 'swiper/css/pagination'
+
+const services = [
+  {
+    title: 'Videomarketing',
+    description: 'Vídeos para redes sociais, produtos, fashionfilm, vídeos de anúncios.',
+    image: '/img/services/video-marketing.svg'
+  },
+  {
+    title: 'Transmissão ao vivo',
+    description: 'Videos para redes sociais, institucionais, comerciais para youtube, cobertura de eventos, cursos e outros.',
+    image: '/img/services/transmissao-ao-vivo.svg'
+  },
+  {
+    title: 'Filmagem aérea',
+    description: 'Videos para redes sociais, institucionais, comerciais para youtube, cobertura de eventos, cursos e outros.',
+    image: '/img/services/imagens-aereas.svg'
+  },
+  {
+    title: 'Cobertura de eventos',
+    description: 'Videos para redes sociais, institucionais, comerciais para youtube, cobertura de eventos, cursos e outros.',
+    image: '/img/services/cobertura-de-eventos.svg'
+  },
+  {
+    title: 'Video corporativo',
+    description: 'Videos para redes sociais, institucionais, comerciais para youtube, cobertura de eventos, cursos e outros.',
+    image: '/img/services/video-corporativo.svg'
+  },
+  {
+    title: 'Curso Online',
+    description: 'Videos para redes sociais, institucionais, comerciais para youtube, cobertura de eventos, cursos e outros.',
+    image: '/img/services/curso-online.svg'
+  },
+]
+
+const clients = [
+  {
+    id: 1,
+    title: 'Google',
+    image: '/img/clients/google.png'
+  },
+  {
+    id: 2,
+    title: 'Marc Jacobs',
+    image: '/img/clients/marc-jacobs.png'
+  },
+  {
+    id: 3,
+    title: 'Rentalmed',
+    image: '/img/clients/rentalmed.png'
+  },
+  {
+    id: 4,
+    title: 'Calvin Klein',
+    image: '/img/clients/calvin-klein.png'
+  },
+  {
+    id: 5,
+    title: 'Dior',
+    image: '/img/clients/dior.png'
+  },
+  {
+    id: 6,
+    title: 'Channel',
+    image: '/img/clients/channel.png'
+  },
+  {
+    id: 7,
+    title: 'Supreme',
+    image: '/img/clients/supreme.png'
+  },
+]
+
+const works = [
+  {
+    id: 1,
+    title: 'Comercial de produto',
+    category: 'Videomarketing',
+    categorySlug: 'videomarketing',
+    image: 'http://unsplash.it/1690/900?random=0&gravity=center'
+  },
+  {
+    id: 2,
+    title: 'Transmissão ao Vivo',
+    category: 'Transmissão ao Vivo',
+    categorySlug: 'transmissao-ao-vivo',
+    image: 'http://unsplash.it/1690/900?random=1&gravity=center'
+  },
+  {
+    id: 3,
+    title: 'Filmagem aérea',
+    category: 'Filmagem aérea',
+    categorySlug: 'filmagem-aerea',
+    image: 'http://unsplash.it/1690/900?random=2&gravity=center'
+  },
+  {
+    id: 4,
+    title: 'Eventos',
+    category: 'Eventos',
+    categorySlug: 'eventos',
+    image: 'http://unsplash.it/1690/900?random=3&gravity=center'
+  },
+  {
+    id: 5,
+    title: 'Corporativos',
+    category: 'Corporativos',
+    categorySlug: 'corporativos',
+    image: 'http://unsplash.it/1690/900?random=4&gravity=center'
+  },
+  {
+    id: 6,
+    title: 'Casamentos',
+    category: 'Casamentos',
+    categorySlug: 'casamentos',
+    image: 'http://unsplash.it/1690/900?random=5&gravity=center'
+  },
+  {
+    id: 7,
+    title: 'Comercial de produto 2',
+    category: 'Videomarketing',
+    categorySlug: 'videomarketing',
+    image: 'http://unsplash.it/1690/900?random=6&gravity=center'
+  },
+  {
+    id: 8,
+    title: 'Transmissão ao Vivo 2',
+    category: 'Transmissão ao Vivo',
+    categorySlug: 'transmissao-ao-vivo',
+    image: 'http://unsplash.it/1690/900?random=7&gravity=center'
+  },
+  {
+    id: 9,
+    title: 'Filmagem aérea 2',
+    category: 'Filmagem aérea',
+    categorySlug: 'filmagem-aerea',
+    image: 'http://unsplash.it/1690/900?random=8&gravity=center'
+  },
+  {
+    id: 10,
+    title: 'Eventos 2',
+    category: 'Eventos',
+    categorySlug: 'eventos',
+    image: 'http://unsplash.it/1690/900?random=9&gravity=center'
+  },
+  {
+    id: 11,
+    title: 'Corporativos 2',
+    category: 'Corporativos',
+    categorySlug: 'corporativos',
+    image: 'http://unsplash.it/1690/900?random=10&gravity=center'
+  },
+  {
+    id: 12,
+    title: 'Casamentos 2',
+    category: 'Casamentos',
+    categorySlug: 'casamentos',
+    image: 'http://unsplash.it/1690/900?random=11&gravity=center'
+  },
+]
+
+const knowhow = [{
+  id: 1,
+  image: '/img/know-how/estrategia.svg',
+  title: 'Estratégia na produção',
+  description: 'Se você ja produziu conteúdos ou vídeos e não teve resultados, nós podemos te ajudar.'
+},
+{
+  id: 2,
+  image: '/img/know-how/anuncios.svg',
+  title: 'Videos para anúncios em tráfego pago',
+  description: 'Se seu negócio precisa de anúncios que convertem em vendas, nós podemos te ajudar.'
+},
+{
+  id: 3,
+  image: '/img/know-how/posicionamento.svg',
+  title: 'Posicionamento nas redes sociais',
+  description: 'A imagem que você está transmitindo para seu cliente é a que você gostaria? Se não, nós podemos te ajudar.'
+},
+{
+  id: 4,
+  image: '/img/know-how/analise.svg',
+  title: 'Análise de conteúdo',
+  description: 'Já postou um conteúdo e não teve engajamento, nós podemos te ajudar.'
+},
+]
+
+const creativeSteps = [
+  {
+    id: 5,
+    image: '/img/creative/distribuicao.svg',
+    class: '',
+    title: 'Distribuição',
+    description: 'Depois de finalizar setJS vídeos, é hora de começar a Usar os canais de distribuição apropriados para atingir seu objetivo.'
+  },
+  {
+    id: 6,
+    image: '/img/creative/hero-image.svg',
+    class: 'row-span-2',
+    title: '',
+    description: ''
+  },
+  {
+    id: 1,
+    image: '/img/creative/reuniao.svg',
+    class: '',
+    title: 'Reunião | Briefing',
+    description: 'Nesta etapa iremos fazer uma reunião, chamada de vídeo ou simplemente você irá preencher um formulário com suas ideias e informações da produção.'
+  },
+  {
+    id: 4,
+    image: '/img/creative/pos-producao.svg',
+    class: '',
+    title: 'Pós-Produção',
+    description: 'Assim que tivermos um plano em vigor, nossa equipe de produção trabalhará com você ou sua equipe para garantir que seu vídeo seja filmado de maneira cativante.'
+  },
+  {
+    id: 2,
+    image: '/img/creative/analise.svg',
+    class: '',
+    title: 'Análise + Estratégia',
+    description: 'Aprenderemos sobre você e seus objetivos e criaremos uma estratégia de marketing que gerará resultados.'
+  },
+  {
+    id: 3,
+    image: '/img/creative/producao.svg',
+    class: 'col-span-3 w-1/3 mx-auto',
+    title: 'Produção',
+    description: 'Assim que tivermos um plano em vigor, nossa equipe de produção trabalhará com você ou sua equipe para garantir que seu vídeo seja filmado de maneira cativante.'
+  },
+]
+
+const socials = [{
+  id: 1,
+  source: '/img/socials/text.svg',
+  href: '#',
+  description: 'Nos acompanhe nas redes sociais'
+}, {
+  id: 2,
+  source: '/img/socials/line.svg',
+  href: '#',
+  description: ''
+}, {
+  id: 3,
+  source: '/img/socials/instagram.svg',
+  description: 'Acompanhe no instagram',
+  href: 'https://www.instagram.com/orbbitfilms/',
+}, {
+  id: 3,
+  source: '/img/socials/youtube.svg',
+  description: 'Acompanhe no youtube',
+  href: 'https://www.youtube.com/@orbbiale',
+}, {
+  id: 4,
+  source: '/img/socials/facebook.svg',
+  description: 'Acompanhe no facebook',
+  href: 'https://www.facebook.com/OrbbitFilms',
+}, {
+  id: 5,
+  source: '/img/socials/tiktok.svg',
+  description: 'Acompanhe no tiktok',
+  href: 'https://www.tiktok.com/@orbbitale',
+}]
+
+const categories = ['Todos', ...new Set(works.map(item => item.category))]
+
+const filteredWorks = ref<{
+  id: number,
+  title: string,
+  category: string,
+  categorySlug: string,
+  image: string,
+}[] | null>(null)
+
+function filterWorks(category: string) {
+  filteredWorks.value = []
+  if (category === 'Todos') {
+    filteredWorks.value = null
+  } else {
+    works.find(item => {
+      //@ts-expect-error
+      if (item.category === category) filteredWorks.value.push(item)
+    })
+  }
+}
+
+function slideChange(e: any) {
+  console.log(e)
+}
+
+</script>
+<template>
+  <div class="">
+
+    <!-- socials -->
+    <section class="fixed flex flex-col left-10 top-56">
+      <a v-for="item of socials" :key="item.id" class="w-10" :href="item.href">
+        <img :src="item.source" :alt="item.description">
+      </a>
+    </section>
+
+    <!-- menu -->
+    <section class="bg-gondola">
+      <div class="navbar h-28 max-w-7xl mx-auto">
+        <div class="flex-1">
+          <NuxtLink to="/" class="btn btn-ghost normal-case text-xl text-white mx-auto">
+            <img class=" w-48 font-Outfit" src="/img/logo-text.svg" alt="">
+          </NuxtLink>
+        </div>
+        <div class="flex-1">
+          <NuxtLink to="/" class="btn btn-ghost normal-case text-xl text-white mx-auto">
+            <img class=" w-20" src="/img/logo-icon.svg" alt="">
+          </NuxtLink>
+        </div>
+        <div class="flex-1">
+          <ul class="menu menu-horizontal px-1 text-white mx-auto">
+            <li tabindex="0">
+              <a class="uppercase">
+                OrbitLuts
+                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </a>
+              <ul class="p-2 bg-tangaroa shadow-md">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="btn bg-mountain-meadow border-mountain-meadow text-gondola rounded-full w-fit px-6">
+                entre em contato
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- hero -->
+    <section class="flex flex-row gap-5 w-5/6 mx-auto py-20 items-center">
+      <div class="flex flex-col gap-5 flex-1 mx-auto">
+        <h1 class="flex flex-col text-6xl font-bold">
+          <span class="  text-tangaroa">Escale suas vendas com</span>
+          <span class=" font-bold text-eletric-purple">vídeos que geram resultados</span>
+        </h1>
+        <p class="text-3xl">
+          Somos uma produtora especializada em vídeomarketing
+          e geramos resultados para o seu negócio atraves da produção
+          de videos baseados em analises estratégicas.
+        </p>
+        <button class="btn btn-circle px-6 bg-eletric-purple w-fit text-white font-bold text-2xl tracking-wide ">
+          Falar com um especialista
+        </button>
+      </div>
+      <div class="flex-1 px-10 flex overflow-hidden">
+        <Swiper id="slider-header" :modules="[EffectCards, Autoplay]" :effect="'cards'" :slides-per-view="1"
+          :cards-effect="{
+            perSlideOffset: 75,
+
+          }" :autoplay="true" @slide-change="slideChange" :loop="true" :centered-slides="true">
+          <SwiperSlide v-for="slide in 10" :key="slide" class="">
+            <img src="/img/footage-slider.png" alt="" srcset="">
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </section>
+
+    <!-- business -->
+    <section class="py-10 w-full">
+      <div class="flex flex-col bg-white rounded shadow-lg w-fit mx-auto items-center py-5 px-10 gap-5">
+        <h1 class="font-bold flex flex-col text-center">
+          <span class="text-4xl text-tangaroa">Algumas das empresas que confiam</span>
+          <span class="text-eletric-purple text-4xl">no nosso profissionalismo</span>
+        </h1>
+        <div class="flex flex-row gap-2 max-w-3xl">
+          <Swiper :modules="[Pagination, Autoplay]" :slides-per-view="3" :autoplay="true" :pagination="{
+            type: 'bullets',
+            enabled: true,
+          }" class="">
+            <SwiperSlide v-for="item of clients" :key="item.id" class="pb-10">
+              <img :src="item.image" :alt="item.title">
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </div>
+    </section>
+
+    <!-- services -->
+    <section class=" w-full  flex items-center flex-col py-32">
+      <div class="flex flex-col gap-5 mx-auto w-full max-w-6xl">
+        <h1 class="font-black flex flex-col text-center">
+          <span class="text-4xl text-tangaroa">A solução para</span>
+          <span class="text-eletric-purple text-5xl">empresas que buscam por:</span>
+        </h1>
+        <div class="grid grid-flow-row grid-cols-3 gap-5">
+          <article v-for="item of services"
+            class="p-2 w-full shadow-lg border rounded-xl overflow-hidden border-t-eletric-purple flex flex-col gap-3 items-center text-center bg-white justify-between pb-8"
+            :key="item.title">
+            <img class="" :src="item.image" alt="">
+            <h1 class="font-black text-2xl">{{ item.title }}</h1>
+            {{ item.description }}
+            <button class="btn btn-circle px-6 text-white bg-eletric-purple w-fit">
+              QUERO PROPOSTA
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- works -->
+    <section class="py-10 w-full  flex items-center flex-col bg-cover bg-fixed bg-blend-multiply bg-opacity-30"
+      style="background-image: url('http://unsplash.it/2000/1000?random=15&gravity=center')">
+      <div class="flex flex-col gap-5 mx-auto w-full max-w-max px-20">
+        <h1 class="font-bold flex flex-col text-center">
+          <span class="text-5xl text-tangaroa">conheça</span>
+          <span class="text-eletric-purple text-6xl">nosso trabalho</span>
+        </h1>
+        <div class="flex flex-row justify-around max-w-6xl mx-auto gap-3">
+          <button v-for="item of categories" :key="item" class="btn btn-sm btn-circle w-fit px-5 text-xs"
+            @click="filterWorks(item)">
+            {{ item }}
+          </button>
+        </div>
+        <div v-if="!!filteredWorks" class="grid grid-flow-row grid-cols-3 gap-5">
+          <article v-for="item of filteredWorks"
+            class="p-2 w-full shadow-lg border rounded-2xl overflow-hidden border-t-eletric-purple flex flex-col gap-3 items-center text-center bg-white"
+            :key="item.title">
+            <img class="rounded" :src="item.image" alt="">
+            <div class="flex flex-col items-center">
+              <h1 class="font-black text-2xl">{{ item.title }}</h1>
+              <span class="label text-lg">{{ item.category }}</span>
+            </div>
+          </article>
+        </div>
+        <div v-else class="grid grid-flow-row grid-cols-3 gap-5">
+          <article v-for="item of works"
+            class="p-8 w-full shadow-lg border rounded-xl overflow-hidden border-t-eletric-purple flex flex-col gap-3 items-center text-center bg-white"
+            :key="item.title">
+            <img class="rounded" :src="item.image" alt="">
+            <div class="flex flex-col items-center">
+              <h1 class="font-black text-2xl">{{ item.title }}</h1>
+              <span class="label text-lg">{{ item.category }}</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- knowhow -->
+    <section class="py-10 w-full flex items-center flex-col ">
+      <div class="flex flex-col gap-10 mx-auto w-full max-w-7xl">
+        <h1 class="font-bold flex flex-col text-center">
+          <span class="text-5xl text-tangaroa">Somos especialistas em</span>
+          <span class="text-eletric-purple text-6xl font-black">alavancar négocios através de:</span>
+        </h1>
+        <div class="flex flex-row justify-between gap-5 items-stretch">
+          <article v-for="item of knowhow" :key="item.id"
+            class="flex flex-1 flex-col items-center justify-between text-center gap-5 h-full">
+            <img :src="item.image" :alt="item.title" class="h-48 w-auto">
+            <h1 class="font-bold text-2xl">{{ item.title }}</h1>
+            <p class="w-30 text-lg">{{ item.description }}</p>
+          </article>
+        </div>
+        <button class="btn btn-circle px-6 bg-eletric-purple w-fit text-white font-bold mx-auto">
+          Falar com um especialista
+        </button>
+      </div>
+    </section>
+
+    <!-- disponibility -->
+    <section class="flex flex-row gap-5 max-w-6xl mx-auto py-20 items-center">
+      <div class="flex-1 p-10 flex overflow-hidden">
+        <Swiper id="disponibility" :modules="[EffectCards, Autoplay]" :effect="'cards'" :slides-per-view="1"
+          :cards-effect="{
+            perSlideOffset: 75,
+
+          }" :autoplay="true" @slide-change="slideChange" :loop="true" :centered-slides="true">
+          <SwiperSlide v-for="slide in 10" :key="slide" class="bg-white h-40">
+            <strong>{{ slide }}</strong>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      <div class="flex flex-col gap-5 flex-1 w-full">
+        <h1 class="flex flex-col">
+          <span class="text-5xl font-bold text-tangaroa">Temos tem oe disponibilidade</span>
+          <span class="text-6xl font-bold text-eletric-purple">para seu negócio</span>
+        </h1>
+        <h2 class="text-2xl font-bold">
+          Videomakers
+          <span class="text-eletric-purple">+</span>
+          Editores
+          <span class="text-eletric-purple">+</span>
+          Copywriter
+          <br>
+          Um time completo à sua disposição.
+        </h2>
+        <p>
+          Com uma <span class="text-eletric-purple font-bold">dinâmica high-touch</span>, nosso time trabalhará
+          diretamente com você e sua equipe, acompanhando todo
+          o processo criativo do seu projeto, da pré-produção à
+          finalização.
+        </p>
+      </div>
+    </section>
+
+    <!-- creative -->
+    <section class="py-10 w-full flex items-center flex-col ">
+      <div class="flex flex-col gap-10 mx-auto w-full max-w-6xl">
+        <h1 class="font-bold flex flex-col text-center">
+          <span class="text-5xl text-tangaroa">conheça nosso</span>
+          <span class="text-eletric-purple text-6xl">processo criativo</span>
+        </h1>
+        <div class="grid grid-cols-3 grid-flow-row gap-4">
+          <article v-for="item of creativeSteps" :key="item.id" :class="item.class"
+            class="flex flex-col items-center gap-2 text-center">
+            <img :src="item.image" :alt="item.title" :class="[item.id == 6 ? 'h-auto' : 'h-10']">
+            <h1 class="text-xl font-bold">{{ item.title }}</h1>
+            <p>{{ item.description }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+<style>
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  /* height: 20vh; */
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+.swiper-wrapper {
+  min-width: auto;
+  /* width: 500px; */
+}
+
+.swiper-cards {
+  width: 60%;
+}
+
+.swiper-cards .swiper-slide {
+  border-radius: 6px;
+  /* border: 1px solid black; */
+}
+
+#slider-header .swiper-slide:not(.swiper-slide-visible) {
+  @apply blur-sm opacity-30;
+}
+
+
+#slider-header .swiper-slide-next {
+  @apply blur-sm;
+}
+
+#slider-header .swiper-slide-prev {
+  @apply blur-sm;
+}
+
+#disponibility .swiper-slide:not(.swiper-slide-visible) {
+  @apply blur-sm;
+}
+
+#disponibility .swiper-slide-next {
+  @apply blur-sm;
+}
+
+#disponibility .swiper-slide-prev {
+  @apply blur-sm;
+}
+</style>
