@@ -1,3 +1,8 @@
 {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "scss.validate": false,
+    "files.associations": {
+        "*.scss": "postcss",
+        "*.vue": "vue",
+    },
 }

@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply font-Outfit;
+}
+
+.menu[class*=" px-"]:not(.menu[class*=" px-0"]) li > *,
+.menu[class^="px-"]:not(.menu[class^="px-0"]) li > *,
+.menu[class*=" p-"]:not(.menu[class*=" p-0"]) li > *,
+.menu[class^="p-"]:not(.menu[class^="p-0"]) li > * {
+  @apply rounded-full;
+}
+
+h1 {
+  @apply text-2xl font-bold;
+
+  span {
+    @apply inline-block text-3xl text-eletric-purple;
+  }
+}
+
+p {
+  @apply text-xl font-medium;
+}
+
+.swiper {
+  width: 100%;
+  height: 150%;
+  @apply pt-10 pb-20 #{!important};
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  @apply bottom-0 #{!important};
+
+  .swiper-pagination-bullet-active {
+    @apply bg-eletric-purple;
+  }
+
+  :not(.swiper-pagination-bullet-active) {
+    @apply bg-eletric-purple/80;
+  }
+}
