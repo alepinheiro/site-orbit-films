@@ -36,7 +36,7 @@ const faq = ref([
 </script>
 <template>
     <section class="px-8 py-10">
-        <div class="bg-eletric-purple rounded-lg p-4 text-white">
+        <div class="bg-eletric-purple rounded-lg p-4 text-white max-w-3xl mx-auto">
 
             <h1 class="font-bold ">Dúvidas</h1>
             <h1 class="font-bold text-3xl">Frequentes</h1>

@@ -45,8 +45,7 @@ const clients = [
 <template>
     <section class="p-8 ">
 
-
-        <div class="w-full p-5 rounded-lg bg-white flex flex-col items-center">
+        <div class="w-full p-5 rounded-lg bg-white flex flex-col items-center max-w-5xl mx-auto">
             <h1 class="text-center w-4/5">
                 Algumas das empresas que confiam
                 <span> no nosso profissionalismo</span>

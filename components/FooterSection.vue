@@ -74,15 +74,15 @@ const socials = [{
 </script>
 <template>
     <section class=" py-20 bg-gondola">
-        <div class="flex flex-col items-center text-white">
-            <img src="/img/logo-orbbit-mobile.png" alt="" class="w-2/5 mx-auto pb-10">
-            <div class="flex flex-row justify-between w-full px-8">
-                <ul class="flex flex-col w-full items-start">
+        <div class="flex flex-col items-center text-white max-w-xl mx-auto">
+            <img src="/img/logo-orbbit-mobile.png" alt="" class="w-2/5 lg:w-72 mx-auto pb-10 flex-1">
+            <div class="flex flex-row justify-between w-full px-8  mx-auto flex-1">
+                <ul class="flex flex-col w-full items-start flex-1">
                     <li class="py-2" v-for="item of anchorLinks" :key="item.id">
                         <a :href="item.link">{{ item.title }}</a>
                     </li>
                 </ul>
-                <ul class="flex flex-col w-full items-start">
+                <ul class="flex flex-col w-full items-start flex-1">
                     <li v-for="item of socials" :key="item.id">
 
                         <a class="flex flex-row items-center " :href="item.href">

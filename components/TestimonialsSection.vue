@@ -43,12 +43,12 @@ const testimonials = [
         </h1>
         <Swiper id="testimonialSlider" class="bg-eletric-purple" :modules="[Pagination]" :slidesPerView="'auto'"
             :centeredSlides="true" :loop="true" :pagination="true">
-            <SwiperSlide v-for="item of testimonials" :key="item.id" class="p-1 !w-3/5 h-auto">
-                <div class=" bg-white rounded-lg flex flex-col items-center px-2 py-4">
-                    <p class="text-sm">{{ item.description }}</p>
-                    <img class="h-10 mt-4" :src="item.image" :alt="item.title">
-                    <p class="font-bold text-base text-eletric-purple">{{ item.name }}</p>
-                    <p class="text-xs">{{ item.title }}</p>
+            <SwiperSlide v-for="item of testimonials" :key="item.id" class="p-1 lg:px-8 !w-2/5 h-auto">
+                <div class=" bg-white rounded-lg flex flex-col items-center px-2 lg:px-8 py-4 lg:py-8">
+                    <p class="text-sm lg:text-base">{{ item.description }}</p>
+                    <img class="h-10  mt-4 lg:mt-8" :src="item.image" :alt="item.title">
+                    <p class="font-bold text-base lg:text-2xl text-eletric-purple">{{ item.name }}</p>
+                    <p class="text-xs lg:text-base">{{ item.title }}</p>
                 </div>
             </SwiperSlide>
         </Swiper>

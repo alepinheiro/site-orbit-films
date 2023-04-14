@@ -1,6 +1,6 @@
 
 <template>
-    <section class="flex flex-col items-center py-20 px-8 text-center">
+    <section class="flex flex-col items-center py-20 px-8 text-center max-w-3xl mx-auto">
 
         <h1 class="pb-2">
             <span>
