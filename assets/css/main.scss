@@ -34,6 +34,10 @@ p {
   @apply text-xl font-medium;
 }
 
+.btn {
+  @apply normal-case;
+}
+
 .swiper {
   width: 100%;
   height: 150%;
