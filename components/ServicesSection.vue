@@ -33,7 +33,7 @@ const services = [
 ]
 </script>
 <template>
-    <section class=" w-full flex items-center flex-col py-32">
+    <section class=" w-full flex items-center flex-col py-4 lg:py-20">
         <div class="flex flex-col gap-5 mx-auto w-full max-w-6xl">
             <h1 class="text-center">
                 A solução para <br>
@@ -46,7 +46,7 @@ const services = [
                     <img class="" :src="item.image" alt="">
                     <h1 class="font-black text-2xl">{{ item.title }}</h1>
                     {{ item.description }}
-                    <button class="btn btn-circle px-6 text-white bg-eletric-purple w-fit my-4 normal-case">
+                    <button class="btn btn-circle px-6 text-white bg-eletric-purple w-fit my-4 ">
                         QUERO PROPOSTA
                     </button>
                 </article>

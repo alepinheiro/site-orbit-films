@@ -43,7 +43,7 @@ const clients = [
 ]
 </script>
 <template>
-    <section class="py-8 px-5">
+    <section class="py-8 lg:pt-32 lg:pb-0 px-5">
 
         <div id="businessSlider" class="w-full py-5 px-2 rounded-3xl bg-white flex flex-col items-center max-w-3xl mx-auto">
             <h1 class="text-center w-5/6">
