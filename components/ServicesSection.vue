@@ -36,8 +36,8 @@ const services = [
     <section class=" w-full flex items-center flex-col py-32">
         <div class="flex flex-col gap-5 mx-auto w-full max-w-6xl">
             <h1 class="text-center">
-                A solução para
-                <span>empresas que buscam por:</span>
+                A solução para <br>
+                <span>empresas que buscam:</span>
             </h1>
             <div class="grid grid-flow-row md:grid-cols-3 gap-5 px-14">
                 <article v-for="item of services"

@@ -46,11 +46,11 @@ import "swiper/css/autoplay";
     @apply pb-10 #{!important};
 
     @screen lg {
-        @apply pb-20 #{!important};
+        @apply py-20 #{!important};
     }
 
     .swiper-slide {
-        @apply transition-all;
+        @apply transition-all px-2;
     }
 
     .swiper-slide-active {
