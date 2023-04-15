@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -45,12 +45,13 @@ const clients = [
 <template>
     <section class="p-8 ">
 
-        <div class="w-full p-5 rounded-lg bg-white flex flex-col items-center max-w-5xl mx-auto">
-            <h1 class="text-center w-4/5">
+        <div id="businessSlider" class="w-full p-5 rounded-lg bg-white flex flex-col items-center max-w-3xl mx-auto">
+            <h1 class="text-center w-5/6">
                 Algumas das empresas que confiam
-                <span> no nosso profissionalismo</span>
+                <span> no nosso trabalho</span>
             </h1>
-            <Swiper :modules="[Pagination]" :slidesPerView="3" :centeredSlides="true" :loop="true" :pagination="true">
+            <Swiper :modules="[Pagination, Autoplay]" :slidesPerView="3" :autoplay="true" :centeredSlides="true"
+                :loop="true" :pagination="true">
                 <SwiperSlide v-for="item of clients" :key="item.id" class="">
                     <img :src="item.image" :alt="item.title">
                 </SwiperSlide>
@@ -58,4 +59,21 @@ const clients = [
         </div>
     </section>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+#businessSlider {
+
+
+    .swiper-slide {
+        @apply transition-all;
+    }
+
+    .swiper-slide-active {
+        @apply saturate-100;
+    }
+
+    .swiper-slide:not(.swiper-slide-active) {
+        @apply saturate-0;
+    }
+
+}
+</style>

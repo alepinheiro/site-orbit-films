@@ -6,9 +6,9 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 </script>
 <template>
-    <section class="pt-14">
+    <section class="pt-4">
         <div class="flex flex-col lg:flex-row items-center text-center max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-1 items-center ">
+            <div class="flex flex-col lg:flex-1 items-center px-8 lg:px-0">
                 <h1>
                     Escale suas vendas com
                     <span> videos que geram resultados </span>
