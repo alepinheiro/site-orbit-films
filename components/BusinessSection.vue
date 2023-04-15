@@ -43,9 +43,9 @@ const clients = [
 ]
 </script>
 <template>
-    <section class="p-8 ">
+    <section class="py-8 px-5">
 
-        <div id="businessSlider" class="w-full p-5 rounded-lg bg-white flex flex-col items-center max-w-3xl mx-auto">
+        <div id="businessSlider" class="w-full py-5 px-2 rounded-lg bg-white flex flex-col items-center max-w-3xl mx-auto">
             <h1 class="text-center w-5/6">
                 Algumas das empresas que confiam
                 <span> no nosso trabalho</span>
