@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
             <div class="flex flex-col lg:flex-1 items-center px-8 lg:px-0">
                 <h1>
                     Escale suas vendas com
-                    <span> videos que geram resultados </span>
+                    <span> vídeos que geram resultados </span>
                 </h1>
                 <p class="w-4/5 hidden lg:block lg:py-4">
                     Somos uma produtora de vídeos
@@ -45,6 +45,9 @@ import "swiper/css/autoplay";
 #heroSlider {
     @apply pb-10 #{!important};
 
+    @screen lg {
+        @apply pb-20 #{!important};
+    }
 
     .swiper-slide {
         @apply transition-all;

@@ -15,10 +15,10 @@
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-2xl;
 
   @screen lg {
-    @apply text-6xl;
+    @apply text-5xl;
   }
 
   span {
