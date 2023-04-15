@@ -20,7 +20,8 @@ module.exports = {
         'nero': '#272727',
         'pacific-blue': '#01A0BE',
         'gondola': '#363636',
-        'burnt-orange': '#FF7B31',
+        'burnt-orange': '#FF7336',
+        'light-green': '#76F185'
       }
     },
     fontFamily: {

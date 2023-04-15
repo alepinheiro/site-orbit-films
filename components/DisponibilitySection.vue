@@ -70,7 +70,7 @@ import "swiper/css/autoplay";
 <style lang="scss">
 #disponibilitySlider {
     .swiper-slide {
-        @apply transition-all;
+        @apply transition-all px-2;
     }
 
     .swiper-slide-active {

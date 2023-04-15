@@ -47,7 +47,7 @@ const services = [
                     <h1 class="font-black text-2xl">{{ item.title }}</h1>
                     {{ item.description }}
                     <button class="btn btn-circle px-6 text-white bg-eletric-purple w-fit my-4 ">
-                        QUERO PROPOSTA
+                        Quero proposta
                     </button>
                 </article>
             </div>
