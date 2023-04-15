@@ -23,7 +23,7 @@ import "swiper/css/autoplay";
                     especialista</button>
             </div>
 
-            <div class="w-full lg:w-1/2 pb-5 lg:flex-1 ">
+            <div class="w-full lg:w-1/2 lg:flex-1 ">
                 <Swiper id="heroSlider" :modules="[Pagination, Autoplay]" :slidesPerView="3" :centeredSlides="true"
                     :loop="true" :pagination="true" :autoplay="true">
                     <SwiperSlide v-for="slide in 8" :key="slide">
@@ -31,13 +31,13 @@ import "swiper/css/autoplay";
                     </SwiperSlide>
                 </Swiper>
             </div>
-            <p class="w-4/5 lg:hidden">
+            <p class="w-4/5 lg:hidden leading-6">
                 Somos uma produtora de vídeos
                 especializada em vídeomarketing e geramos
                 resultados para o seu negócio através da
                 produção de vídeos estratégicos.
             </p>
-            <button class="btn rounded-full bg-eletric-purple text-white my-8 lg:hidden"> Falar com um especialista</button>
+            <button class="btn rounded-full bg-eletric-purple text-white my-4 lg:hidden"> Falar com um especialista</button>
         </div>
     </section>
 </template>
