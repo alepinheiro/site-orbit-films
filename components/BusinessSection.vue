@@ -69,15 +69,11 @@ const clients = [
     }
 
     .swiper-slide {
-        @apply transition-all;
-    }
+        @apply transition-all saturate-0;
 
-    .swiper-slide-active {
-        @apply saturate-100;
-    }
-
-    .swiper-slide:not(.swiper-slide-active) {
-        @apply saturate-0;
+        &:hover {
+            @apply saturate-100;
+        }
     }
 
 }

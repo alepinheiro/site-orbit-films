@@ -8,7 +8,7 @@ import "swiper/css/autoplay";
 <template>
     <section class="pt-4">
         <div class="flex flex-col lg:flex-row items-center text-center max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-1 items-center px-8 lg:px-0">
+            <div class="flex flex-col lg:flex-1 items-center px-8 lg:px-0 lg:text-left lg:items-start">
                 <h1>
                     Escale suas vendas com
                     <span> vídeos que geram resultados </span>

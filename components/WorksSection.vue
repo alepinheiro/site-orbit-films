@@ -121,25 +121,27 @@ const filteredWorks = ref<{
                     {{ item }}
                 </button>
             </div>
+
             <div v-if="!!filteredWorks" class="grid grid-flow-row grid-cols-2 md:grid-cols-3 gap-2">
                 <article v-for="item of filteredWorks"
-                    class="p-2 w-full shadow-lg border rounded-2xl overflow-hidden border-t-eletric-purple flex flex-col gap-1 items-center text-center bg-white"
+                    class="p-2 w-full shadow-lg border rounded-2xl overflow-hidden border-t-eletric-purple flex flex-col items-center text-center bg-white"
                     :key="item.title">
-                    <img class="rounded" :src="item.image" alt="">
-                    <div class="flex flex-col items-center">
-                        <h1 class="font-black !text-sm">{{ item.title }}</h1>
-                        <span class="label text-xs">{{ item.category }}</span>
+                    <img class="rounded-xl" :src="item.image" alt="">
+                    <div class="flex flex-col items-center pt-2">
+                        <h1 class="font-black !text-sm leading-3">{{ item.title }}</h1>
+                        <span class="label text-xs leading-3">{{ item.category }}</span>
                     </div>
                 </article>
             </div>
+
             <div v-else class="grid grid-flow-row grid-cols-2 md:grid-cols-3 gap-2">
                 <article v-for="item of works"
-                    class="p-2 w-full shadow-lg border rounded-xl overflow-hidden border-t-eletric-purple flex flex-col gap-1 items-center text-center bg-white"
+                    class="p-2 w-full shadow-lg border rounded-xl overflow-hidden border-t-eletric-purple flex flex-col items-center text-center bg-white"
                     :key="item.title">
-                    <img class="rounded" :src="item.image" alt="">
-                    <div class="flex flex-col items-center">
-                        <h1 class="font-black !text-sm">{{ item.title }}</h1>
-                        <span class="label text-xs">{{ item.category }}</span>
+                    <img class="rounded-xl" :src="item.image" alt="">
+                    <div class="flex flex-col items-center pt-2">
+                        <h1 class="font-black !text-sm leading-3">{{ item.title }}</h1>
+                        <span class="label text-xs leading-3 p-0">{{ item.category }}</span>
                     </div>
                 </article>
             </div>

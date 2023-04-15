@@ -15,14 +15,14 @@
 }
 
 h1 {
-  @apply text-2xl;
+  @apply text-2xl font-bold;
 
   @screen lg {
     @apply text-5xl;
   }
 
   span {
-    @apply inline-block text-4xl text-eletric-purple font-bold;
+    @apply inline-block text-4xl text-eletric-purple;
 
     @screen lg {
       @apply text-7xl;
@@ -36,6 +36,10 @@ p {
 
 .btn {
   @apply normal-case;
+
+  &:hover {
+    @apply bg-mountain-meadow;
+  }
 }
 
 .swiper {

@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         'pear': '#B7EF47',
-        'mountain-meadow': '#1FCB64',
+        'mountain-meadow': '#76F185',
         'eletric-purple': '#8048FF',
         'tangaroa': '#121A24',
         'razzle-dazzle': '#DD47C5',
