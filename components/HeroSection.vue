@@ -23,7 +23,7 @@ import "swiper/css/autoplay";
                     especialista</button>
             </div>
 
-            <div class="w-full lg:w-1/2 py-5 lg:flex-1 ">
+            <div class="w-full lg:w-1/2 pb-5 lg:flex-1 ">
                 <Swiper id="heroSlider" :modules="[Pagination, Autoplay]" :slidesPerView="3" :centeredSlides="true"
                     :loop="true" :pagination="true" :autoplay="true">
                     <SwiperSlide v-for="slide in 8" :key="slide">

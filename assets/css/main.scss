@@ -15,17 +15,17 @@
 }
 
 h1 {
-  @apply text-2xl font-bold;
+  @apply text-3xl;
 
   @screen lg {
-    @apply text-5xl;
+    @apply text-6xl;
   }
 
   span {
-    @apply inline-block text-3xl text-eletric-purple;
+    @apply inline-block text-4xl text-eletric-purple font-bold;
 
     @screen lg {
-      @apply text-6xl;
+      @apply text-7xl;
     }
   }
 }
