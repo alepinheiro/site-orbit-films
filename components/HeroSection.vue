@@ -43,6 +43,7 @@ import "swiper/css/autoplay";
 </template>
 <style lang="scss">
 #heroSlider {
+    @apply pb-10 #{!important};
 
 
     .swiper-slide {
